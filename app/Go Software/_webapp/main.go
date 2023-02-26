@@ -1,17 +1,13 @@
-// . hi
-
-
-//  _webapp labs foundation by ejected media
-// . . sc.fitness - workouts app
+/// _webapp labs foundation
+// . . Ejected . media for SC Fitness n- Workouts
 
 package main
 
 // .
-
 import (
 		"os"
 		"log"
-		
+				
 		"text/template"
 		"net/http"
 )
@@ -41,7 +37,7 @@ func indexHandler(w http.ResponseWriter, r *http.Request) {
     
 // ,
 
-  pageTitle := "workouts.sc.fitness"
+  pageTitle := "SC Fitness - Workouts"
   pagePath := r.URL.Path
     
   pageData := htmlPageData {
@@ -57,7 +53,7 @@ func indexHandler(w http.ResponseWriter, r *http.Request) {
   }  //. .  pageData
   
   
-  pageFilePath := template.Must(template.ParseFiles("page_layout.html"))
+  pageFilePath := template.Must(template.ParseFiles("files/page_layout.html"))
   pageFilePath.Execute(w, pageData)
   
 }  //  .  indexHandler
@@ -68,20 +64,22 @@ func indexHandler(w http.ResponseWriter, r *http.Request) {
 
 func main() {
 
-    appName := "workouts.sc.fitness"
-    
+    appName := "SC Fitness - Workouts"
     
     http.HandleFunc("/", indexHandler)
     http.HandleFunc("/account", indexHandler)
     http.HandleFunc("/profile", indexHandler)
 
-
+// -
+    fileServer := http.FileServer(http.Dir("./pics"))
+	http.Handle("/pics/", http.StripPrefix("/pics", fileServer))
+    
 
 // -- -
         port := os.Getenv("PORT")
         if port == "" {
-                port = "8080"
-                log.Printf("Loading _webapp with default port")
+          port = "8080"
+          log.Printf("Loading _webapp with default port")
         }
         log.Printf("_webapp is active and Listening on port %s", port)
         

@@ -1,0 +1,108 @@
+<html lang="en">
+<head>
+<style>
+
+body { background-image: url('../pics/e_bg_c.jpg'); no-repeat center center fixed; background-size: cover; }
+
+.main_logo_area_wrap { background-color: #333; color: #eee; text-align: center; width: 125px; padding: 15px; font-family: sans-serif; letter-spacing: 0.08em; margin-top: 15px; display: inline-block; }
+
+.main_nav_button_wrap { margin-top: 5px; cursor: pointer; width: 25px; text-align: center; outline: 1px solid #aaa; padding: 5px; display: inline-block; background-color: #eee; }
+
+.app_page_name { display: inline-block; margin-left: 25px; }
+
+#mainNav { display: none; }
+
+.main_nav_wrap {  position: fixed; top: 0; left: 0; background-color: #fff; z-index: 100; padding: 55px; border-right: 2px solid #888; bottom: 0; }
+.main_nav_wrap div { margin-bottom: 35px; }
+
+.main_nav_wrap div a { color: blue; text-decoration: none; }
+.main_nav_wrap div a:visited { color: blue; }
+.main_nav_wrap div a:hover { color: green; }
+
+.user_signin_area_wrap { position: fixed; top: 25px; right: 25px; }
+
+.profile_area_wrap { position: fixed; left: 25px; bottom: 25px; color: #888; font-size: 12px; font-family: monospace; cursor: pointer; z-index: 110; }
+
+.action_button_wrap { position: fixed; right: 25px; bottom: 25px; cursor: pointer; }
+.action_button_data { border: 1px solid #999; width: 55px; height: 55px; border-radius: 50%; }
+
+</style>
+<script>
+
+
+function activateNav () { console.log('activating function activateNav()');
+  var mainNav = document.getElementById('mainNav');
+  var display = getComputedStyle(mainNav).display;
+  if (display == "none") { mainNav.style.display = "block";
+	} else { mainNav.style.display = "none"; }
+  console.log('main nav display set to ', display);
+};
+
+</script>
+
+</head>
+<body>
+
+<header>
+  <div class="main_logo_area_wrap">Shanny Cohen<br />Fitness</div>
+  
+  <div class="app_page_name"></div>
+  
+</header>
+
+  <div class="main_nav_button_wrap" onClick="activateNav();">
+    Nav
+  </div><!-- - . main_nav_button_wrap - -->
+
+<main>
+
+<nav class="main_nav_wrap" id="mainNav">
+
+  <div class="main_logo_area_wrap">Shanny Cohen<br />Fitness</div>
+
+  <div class="main_nav_name">workouts.sc.fitness - app</div>
+  
+   <div class="main_nav_button_wrap" onClick="activateNav();">
+    Nav
+  </div><!-- - . main_nav_button_wrap - -->
+
+  <div class="main_nav_data">
+    
+  
+  </div>
+</nav>
+
+<style>
+  
+
+</style>
+
+
+<div class="main_area_wrap">
+
+
+
+
+</div><!-- - main_area_wrap - -->
+
+</main>
+
+
+<aside class="user_signin_area_wrap">
+  <div class="user_signin_area_data">
+    Sign in
+  </div><!-- - . user_signin_area_data - -->
+</aside>
+
+<aside class="profile_area_wrap">
+  <div class="profile_area_data">
+    Profile
+  </div><!-- - . profile_area_data - -->
+</aside>
+
+<aside class="action_button_wrap">
+  <div class="action_button_data"> </div>
+</aside>
+
+</body>
+</html>
